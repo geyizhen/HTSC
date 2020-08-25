@@ -90,9 +90,6 @@ public class mapReduce {
             e.printStackTrace();
         }
 
-
-
-
         HashMap<String,Integer> reduceMap =reduce(result);
         Result(reduceMap);
     }
