@@ -1,4 +1,4 @@
-package lesson;
+package lesson.MapReduce;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -28,7 +28,7 @@ public class mapReduce {
 
     public static void shuff(ArrayList<HashMap<String,Integer>> list) {
         for(int i = 0; i < list.size(); i++){
-            HashMap<String,Integer> tempMap =list.get(i);
+            HashMap<String, Integer> tempMap =list.get(i);
             for(String key:tempMap.keySet()){
                 if(result.containsKey(key)){
                     ArrayList<Integer> tempList = result.get(key);
@@ -43,10 +43,10 @@ public class mapReduce {
         }
     }
 
-    public static HashMap<String,Integer> reduce(HashMap<String,ArrayList<Integer>> result) {
+    public static HashMap<String, Integer> reduce(HashMap<String,ArrayList<Integer>> result) {
         HashMap<String, Integer> resultMap = new HashMap<>();
-        for(String key:result.keySet()){
-            int size=result.get(key).size();
+        for(String key : result.keySet()){
+            int size = result.get(key).size();
             resultMap.put(key,size);
         }
         return resultMap;
@@ -69,12 +69,14 @@ public class mapReduce {
     }
 
     public static void main(String[] args) {
+
+        long startTime = System.currentTimeMillis();
         String filePath = "C:/Users/sse/Desktop/Hamlet.txt";
         try {
             String encoding = "GBK";
             File file = new File(filePath);
             if (file.isFile() && file.exists()) { //判断文件是否存在
-                InputStreamReader read = new InputStreamReader(new FileInputStream(file), encoding);//考虑到编码格式
+                InputStreamReader read = new InputStreamReader(new FileInputStream(file), encoding);
                 BufferedReader bufferedReader = new BufferedReader(read);
                 String lineTxt = null;
                 while ((lineTxt = bufferedReader.readLine()) != null) {
@@ -90,7 +92,10 @@ public class mapReduce {
             e.printStackTrace();
         }
 
-        HashMap<String,Integer> reduceMap =reduce(result);
+        HashMap<String,Integer> reduceMap = reduce(result);
         Result(reduceMap);
+
+        long endTime = System.currentTimeMillis();
+        System.out.println("运行时间" + (endTime - startTime) + "ms");
     }
 }

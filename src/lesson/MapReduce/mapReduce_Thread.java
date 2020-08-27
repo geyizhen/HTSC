@@ -1,4 +1,4 @@
-package lesson;
+package lesson.MapReduce;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -46,9 +46,9 @@ public class mapReduce_Thread {
         ArrayList<ArrayList<String>> array = new ArrayList<>();
         ArrayList<String> tempList = new ArrayList<>();
         try {
-            BufferedReader br = new BufferedReader(new FileReader(file));//构造一个BufferedReader类来读取文件
+            BufferedReader br = new BufferedReader(new FileReader(file));//读取文件
             String line_temp = null;
-            int i = 0;//计数用
+            int i = 0;
             while ((line_temp = br.readLine()) != null) {
                 tempList.add(line_temp);
                 i++;
