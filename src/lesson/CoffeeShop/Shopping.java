@@ -18,8 +18,8 @@ public class Shopping {
         //主咖啡选择
         System.out.println("Welcome!");
         System.out.println("Which coffee do you want? \n" +
-                "1: Latte($4) \n" +
-                "2: Roast($3) ");
+                "1: Latte ($14) \n" +
+                "2: Roast ($13) ");
         System.out.println("Choose number:");
         Scanner input = new Scanner(System.in);
         String coffee = input.next();
