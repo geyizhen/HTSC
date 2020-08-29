@@ -22,58 +22,58 @@ public class QuerySql {
         //模拟数据库查询
         System.out.println("Simulation query step by step:");
         Node query = new SetNode(" ");
-        query.addChild(new KeywordNode("Select"));
+        query.addChild(new Keyword("Select"));
         System.out.println(query.toString());
 
         Node fields = new SetNode(",");
-        fields.addChild(new ValueNode("*"));
+        fields.addChild(new Value("*"));
         query.addChild(fields);
         System.out.println(query.toString());
 
-        query.addChild(new KeywordNode("From"));
+        query.addChild(new Keyword("From"));
         Node tables = new SetNode(",");
-        tables.addChild(new ValueNode("Customer"));
+        tables.addChild(new Value("Customer"));
         query.addChild(tables);
         System.out.println(query.toString());
 
-        query.addChild(new KeywordNode("Where"));
+        query.addChild(new Keyword("Where"));
         System.out.println(query.toString());
 
         //测试and逻辑
         Node conditioins = new SetNode(" and ");
-        Node ageCompare = new CompareNode(">=");
-        ageCompare.addChild(new ValueNode("age"));
-        ageCompare.addChild(new ValueNode("30"));
+        Node ageCompare = new Compare(">=");
+        ageCompare.addChild(new Value("age"));
+        ageCompare.addChild(new Value("30"));
         conditioins.addChild(ageCompare);
 
 
-        Node levelCompare = new CompareNode(">");
-        levelCompare.addChild(new ValueNode("height"));
-        levelCompare.addChild(new ValueNode("170cm"));
+        Node levelCompare = new Compare(">");
+        levelCompare.addChild(new Value("height"));
+        levelCompare.addChild(new Value("170cm"));
         conditioins.addChild(levelCompare);
         query.addChild(conditioins);
         System.out.println(query.toString());
 
 
         //测试or逻辑
-        query.addChild(new ValueNode("and"));
+        query.addChild(new Value("and"));
         conditioins = new SetNode(" or ");
 
-        Node CompanyCompare = new CompareNode("=");
-        CompanyCompare.addChild(new ValueNode("Company"));
-        CompanyCompare.addChild(new ValueNode("HTSC"));
+        Node CompanyCompare = new Compare("=");
+        CompanyCompare.addChild(new Value("Company"));
+        CompanyCompare.addChild(new Value("HTSC"));
         conditioins.addChild(CompanyCompare);
 
-        Node PhoneNumCompare = new CompareNode("like ");
-        PhoneNumCompare.addChild(new ValueNode("PhoneNum"));
-        PhoneNumCompare.addChild(new ValueNode("'0%'"));
+        Node PhoneNumCompare = new Compare("like ");
+        PhoneNumCompare.addChild(new Value("PhoneNum"));
+        PhoneNumCompare.addChild(new Value("'0%'"));
         conditioins.addChild(PhoneNumCompare);
         query.addChild(conditioins);
         System.out.println(query.toString());
 
-        query.addChild(new KeywordNode("order by"));
+        query.addChild(new Keyword("order by"));
         Node orders = new SetNode(",");
-        orders.addChild(new ValueNode("UserId"));
+        orders.addChild(new Value("UserId"));
         query.addChild(orders);
 
         System.out.println(query.toString());

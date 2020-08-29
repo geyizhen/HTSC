@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SetNode extends Node {
-    // 子节点之间的分隔符
+    // 设置子节点之间的分隔符
     protected String seperator;
 
     public String getSeperator() {

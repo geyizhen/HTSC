@@ -18,7 +18,6 @@ public abstract class Node {
     // 添加一个子节点
     public Node addChild(Node n) {
         children.add(n);
-
         return this;
     }
 
@@ -29,7 +28,6 @@ public abstract class Node {
             Node child = children.get(i);
             retval += child.toString();
         }
-
         return retval;
     }
 }
