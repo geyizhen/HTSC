@@ -41,12 +41,12 @@ public class UnitTest {
         Node conditioins = new SetNode(" and ");
         Node ageCompare = new Compare(">=");
         ageCompare.addChild(new Value("age"));
-        ageCompare.addChild(new Value("41"));
+        ageCompare.addChild(new Value("30"));
         conditioins.addChild(ageCompare);
 
         Node levelCompare = new Compare("<");
-        levelCompare.addChild(new Value("level"));
-        levelCompare.addChild(new Value("9"));
+        levelCompare.addChild(new Value("height"));
+        levelCompare.addChild(new Value("180"));
         conditioins.addChild(levelCompare);
         query.addChild(conditioins);
 
@@ -67,8 +67,8 @@ public class UnitTest {
 
 
         Node levelCompare = new Compare("<");
-        levelCompare.addChild(new Value("level"));
-        levelCompare.addChild(new Value("9"));
+        levelCompare.addChild(new Value("height"));
+        levelCompare.addChild(new Value("180"));
         conditioins.addChild(levelCompare);
         //query.addChild(conditioins);
 
@@ -84,8 +84,6 @@ public class UnitTest {
         PhoneNumCompare.addChild(new Value("'0%'"));
         conditioins.addChild(PhoneNumCompare);
         query.addChild(conditioins);
-
-
 
         System.out.println(query.toString().substring(1, query.toString().length() - 1));
     }
